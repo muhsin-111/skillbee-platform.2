@@ -34,7 +34,6 @@
                 <input type="password" id="adminPass" placeholder="Password">
                 <button onclick="checkLogin()">Login</button>
             </div>
-            
             <div id="managementTab" style="display:none;">
                 <h3 style="color:var(--purple)">SkillBee Control Panel</h3>
                 <div class="admin-flex-container">
@@ -48,11 +47,10 @@
                             <option value="Meta Ads Workshop">Meta Ads Workshop</option>
                             <option value="Life Skill Development">Life Skill Development</option>
                         </select>
-                        <input type="text" id="classTopic" placeholder="Topic Name (Module 1)">
+                        <input type="text" id="classTopic" placeholder="Topic Name">
                         <input type="text" id="youtubeLink" placeholder="YouTube Embed URL">
                         <button onclick="addCourseClass()">Add Class Link</button>
                     </div>
-
                     <div class="admin-col">
                         <h4>2. Add Student Code</h4>
                         <input type="text" id="stdName" placeholder="Student Name">
@@ -113,7 +111,7 @@
             <input type="text" id="studentCode" placeholder="Enter Code">
             <button onclick="verifyCode()">Unlock My Course</button>
             <div id="videoArea" style="display:none; margin-top: 30px;">
-                <h4 id="classTitle" style="color:var(--teal)"></h4>
+                <h4 id="classTitle" style="color:#ffffff"></h4>
                 <iframe id="courseVideo" width="100%" height="315" src="" frameborder="0" allowfullscreen></iframe>
             </div>
         </div>
@@ -127,10 +125,6 @@
             <div class="worker-card"><img src="staff3.png" alt="Staff" class="worker-img"><h3>Fasna Fabee K</h3><p>Digital Marketing Executive Officer</p></div>
         </div>
     </section>
-
-    <footer>
-        <p>&copy; 2026 Skillbee Platform | Contact: 7907287563</p>
-    </footer>
 
     <script src="script.js"></script>
 </body>

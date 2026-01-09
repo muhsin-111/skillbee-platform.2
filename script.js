@@ -1,5 +1,5 @@
 let courseLessons = [
-    { course: "Resin Art", topic: "Introduction to Resin", link: "https://www.youtube.com/embed/dQw4w9WgXcQ" }
+    { course: "Resin Art", topic: "Intro to Resin", link: "https://www.youtube.com/embed/dQw4w9WgXcQ" }
 ];
 
 let studentAccess = [
@@ -23,7 +23,7 @@ function checkLogin() {
        document.getElementById('adminPass').value === "skillbee2026") {
         document.getElementById('loginSection').style.display = 'none';
         document.getElementById('managementTab').style.display = 'block';
-    } else { alert("Login Failed: Incorrect Credentials"); }
+    } else { alert("Login Failed"); }
 }
 
 function addCourseClass() {
@@ -32,8 +32,8 @@ function addCourseClass() {
     const link = document.getElementById('youtubeLink').value;
     if(topic && link) {
         courseLessons.push({ course, topic, link });
-        alert(`Class link added for ${course}!`);
-    } else { alert("Please enter both topic and link."); }
+        alert(`Class for ${course} added!`);
+    }
 }
 
 function addStudentAccess() {
@@ -42,8 +42,8 @@ function addStudentAccess() {
     const course = document.getElementById('stdCourse').value;
     if(name && code) {
         studentAccess.push({ name, code, course });
-        alert(`Access for ${name} activated on ${course}!`);
-    } else { alert("Please enter student name and code."); }
+        alert(`Access for ${name} activated!`);
+    }
 }
 
 function verifyCode() {
@@ -53,14 +53,14 @@ function verifyCode() {
     if(student) {
         const lesson = courseLessons.find(l => l.course === student.course);
         if(lesson) {
-            alert(`Welcome ${student.name}! Accessing your ${student.course} class.`);
+            alert(`Welcome ${student.name}! Opening your ${student.course} class.`);
             document.getElementById('classTitle').innerText = lesson.topic;
             document.getElementById('courseVideo').src = lesson.link;
             document.getElementById('videoArea').style.display = 'block';
         } else {
-            alert("Verified! However, no video links have been uploaded for this course yet.");
+            alert("Verified! No video link added for this course yet.");
         }
-    } else { alert("Access code invalid. Please contact support."); }
+    } else { alert("Invalid access code."); }
 }
 
 function buyCourse(courseName) {
