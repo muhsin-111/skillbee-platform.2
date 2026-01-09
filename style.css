@@ -52,3 +52,41 @@ nav ul li a { text-decoration: none; color: #333; font-weight: bold; font-size: 
 .close-admin { position: absolute; right: 20px; top: 10px; font-size: 28px; cursor: pointer; }
 
 @media (max-width: 768px) { nav ul { display: none; } .admin-flex-container { flex-direction: column; } body { padding-top: 90px; } }
+/* ... All existing styles for Nav, Hero, Courses, and Admin remain the same ... */
+
+footer {
+    background-color: #333;
+    color: white;
+    padding: 40px 10%;
+    text-align: center;
+}
+
+.footer-content p {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+.social-links {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+}
+
+.social-icon {
+    width: 35px;
+    height: 35px;
+    transition: transform 0.3s;
+}
+
+.social-icon:hover {
+    transform: scale(1.2);
+}
+
+/* Ensure mobile alignment stays perfect */
+@media (max-width: 768px) {
+    .social-icon {
+        width: 30px;
+        height: 30px;
+    }
+}
