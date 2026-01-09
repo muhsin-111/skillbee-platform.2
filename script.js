@@ -1,5 +1,10 @@
-let accessDatabase = [
-    { name: "Admin", code: "SB2026", course: "Resin Art", link: "https://www.youtube.com/embed/dQw4w9WgXcQ" }
+// Database objects
+let courseLessons = [
+    { course: "Resin Art", topic: "Intro to Resin", link: "https://www.youtube.com/embed/dQw4w9WgXcQ" }
+];
+
+let studentAccess = [
+    { name: "Admin", code: "SB2026", course: "Resin Art" }
 ];
 
 function toggleAdminMenu() {
@@ -19,30 +24,47 @@ function checkLogin() {
        document.getElementById('adminPass').value === "skillbee2026") {
         document.getElementById('loginSection').style.display = 'none';
         document.getElementById('managementTab').style.display = 'block';
-    } else { alert("Wrong Username or Password"); }
+    } else { alert("Login Failed"); }
 }
 
-function updateSystem() {
-    const name = document.getElementById('newStudentName').value;
-    const code = document.getElementById('newStudentCode').value.toUpperCase();
-    const course = document.getElementById('targetCourse').value;
-    const link = document.getElementById('newYoutubeLink').value;
-
-    if(name && code && link) {
-        accessDatabase.push({ name, code, course, link });
-        alert(`Successfully Updated! Student ${name} registered.`);
-        closeAdmin();
-    } else { alert("Fill all fields."); }
+// Manage Course Content
+function addCourseClass() {
+    const course = document.getElementById('contentCourse').value;
+    const topic = document.getElementById('classTopic').value;
+    const link = document.getElementById('youtubeLink').value;
+    if(topic && link) {
+        courseLessons.push({ course, topic, link });
+        alert(`Class for ${course} added!`);
+    }
 }
 
+// Manage Student Access
+function addStudentAccess() {
+    const name = document.getElementById('stdName').value;
+    const code = document.getElementById('stdCode').value.toUpperCase();
+    const course = document.getElementById('stdCourse').value;
+    if(name && code) {
+        studentAccess.push({ name, code, course });
+        alert(`Access for ${name} activated!`);
+    }
+}
+
+// Student Verification logic
 function verifyCode() {
-    const code = document.getElementById('studentCode').value.toUpperCase();
-    const entry = accessDatabase.find(item => item.code === code);
-    if(entry) {
-        alert(`Welcome ${entry.name}! Opening ${entry.course}.`);
-        document.getElementById('courseVideo').src = entry.link;
-        document.getElementById('videoArea').style.display = 'block';
-    } else { alert("Code not found."); }
+    const enteredCode = document.getElementById('studentCode').value.toUpperCase();
+    const student = studentAccess.find(s => s.code === enteredCode);
+
+    if(student) {
+        const lesson = courseLessons.find(l => l.course === student.course);
+        if(lesson) {
+            alert(`Welcome ${student.name}! Opening ${lesson.topic}.`);
+            document.getElementById('classTitle').innerText = lesson.topic;
+            document.getElementById('courseVideo').src = lesson.link;
+            document.getElementById('videoArea').style.display = 'block';
+        } else {
+            alert("Student verified, but no classes found for this course yet.");
+        }
+    } else { alert("Access code invalid."); }
 }
 
 function buyCourse(courseName) {

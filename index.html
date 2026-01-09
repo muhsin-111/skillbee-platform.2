@@ -36,20 +36,31 @@
             </div>
             
             <div id="managementTab" style="display:none;">
-                <h3>SkillBee Control Panel</h3>
-                <label>Select Course:</label>
-                <select id="targetCourse">
-                    <option value="Resin Art">Resin Art</option>
-                    <option value="AI For Teachers">AI For Teachers</option>
-                    <option value="Advanced Graphic Design">Advanced Graphic Design</option>
-                    <option value="AI Prompt Engineering">AI Prompt Engineering</option>
-                    <option value="Meta Ads Workshop">Meta Ads Workshop</option>
-                    <option value="Life Skill Development">Life Skill Development</option>
-                </select>
-                <input type="text" id="newStudentName" placeholder="Student Name">
-                <input type="text" id="newStudentCode" placeholder="Entry Access Code">
-                <input type="text" id="newYoutubeLink" placeholder="YouTube Embed Link">
-                <button onclick="updateSystem()" class="update-btn">Save & Update Web</button>
+                <h3 style="color:var(--purple)">SkillBee Control Panel</h3>
+                
+                <div class="admin-flex-container">
+                    <div class="admin-col">
+                        <h4>1. Add Course Class</h4>
+                        <select id="contentCourse">
+                            <option value="Resin Art">Resin Art</option>
+                            <option value="AI For Teachers">AI For Teachers</option>
+                        </select>
+                        <input type="text" id="classTopic" placeholder="Topic Name (Module 1)">
+                        <input type="text" id="youtubeLink" placeholder="YouTube Embed URL">
+                        <button onclick="addCourseClass()">Add Class Link</button>
+                    </div>
+
+                    <div class="admin-col">
+                        <h4>2. Add Student Code</h4>
+                        <input type="text" id="stdName" placeholder="Student Name">
+                        <input type="text" id="stdCode" placeholder="Access Code">
+                        <select id="stdCourse">
+                            <option value="Resin Art">Resin Art</option>
+                            <option value="AI For Teachers">AI For Teachers</option>
+                        </select>
+                        <button onclick="addStudentAccess()">Activate Student</button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -57,7 +68,7 @@
     <header id="home" class="hero-section">
         <div class="hero-content">
             <h1>Future Skills <br>Start Here</h1>
-            <p>SkillBee offers more than classes — we provide complete student development.</p>
+            <p>SkillBee ensures every student is future-ready with expert mentors.</p>
             <button class="explore-btn" onclick="document.getElementById('courses').scrollIntoView()">Explore Courses</button>
         </div>
     </header>
@@ -95,6 +106,7 @@
             <input type="text" id="studentCode" placeholder="Enter Code">
             <button onclick="verifyCode()">Unlock My Course</button>
             <div id="videoArea" style="display:none; margin-top: 30px;">
+                <h4 id="classTitle" style="color:var(--teal)"></h4>
                 <iframe id="courseVideo" width="100%" height="315" src="" frameborder="0" allowfullscreen></iframe>
             </div>
         </div>
