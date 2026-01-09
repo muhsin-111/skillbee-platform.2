@@ -9,8 +9,13 @@
 <body>
 
     <nav>
-        <div class="logo-container">
-            <img src="logo.png" alt="SkillBee Logo" class="site-logo" onclick="openLogin()" style="cursor: pointer;">
+        <div class="nav-left">
+            <div class="menu-dots" onclick="toggleAdminMenu()">&#8942;</div>
+            <img src="logo.png" alt="SkillBee Logo" class="site-logo">
+            <div id="adminMenu" class="dropdown-content">
+                <a href="javascript:void(0)" onclick="openLogin()">Admin Access</a>
+                <a href="javascript:void(0)" onclick="openLogin()">Staff Access</a>
+            </div>
         </div>
         <ul>
             <li><a href="#home">Home</a></li>
@@ -25,16 +30,17 @@
         <div class="admin-box">
             <span class="close-admin" onclick="closeAdmin()">&times;</span>
             <div id="loginSection">
-                <h3>Admin Login</h3>
+                <h3>System Login</h3>
                 <input type="text" id="adminUser" placeholder="Username">
                 <input type="password" id="adminPass" placeholder="Password">
                 <button onclick="checkLogin()">Login</button>
             </div>
             <div id="managementTab" style="display:none;">
-                <h3>SkillBee Management</h3>
-                <input type="text" id="newStudentCode" placeholder="New Access Code">
-                <input type="text" id="newYoutubeLink" placeholder="New YouTube Embed Link">
-                <button onclick="updateSystem()" class="update-btn">Save & Update Site</button>
+                <h3>SkillBee Control Panel</h3>
+                <p>Update access for your students:</p>
+                <input type="text" id="newStudentCode" placeholder="New Entry Code">
+                <input type="text" id="newYoutubeLink" placeholder="New Video Embed URL">
+                <button onclick="updateSystem()" class="update-btn">Apply to Website</button>
             </div>
         </div>
     </div>
@@ -42,7 +48,7 @@
     <header id="home" class="hero-section">
         <div class="hero-content">
             <h1>Future Skills <br>Start Here</h1>
-            <p>SkillBee provides complete student development with expert mentors.</p>
+            <p>SkillBee offers more than classes — we provide complete student development.</p>
             <button class="explore-btn" onclick="document.getElementById('courses').scrollIntoView()">Explore Courses</button>
         </div>
     </header>
