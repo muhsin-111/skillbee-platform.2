@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>SkillBee | Premium Learning</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav>
+        <div class="logo-container">
+            <img src="logo.png" alt="SkillBee Logo" class="site-logo" onclick="openLogin()" style="cursor: pointer;">
+        </div>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#courses">Courses</a></li>
+            <li><a href="#highlights">Highlights</a></li>
+            <li><a href="#workers">Instructors</a></li>
+            <li><a href="#verify" class="nav-btn">Access Class</a></li>
+        </ul>
+    </nav>
+
+    <div id="adminModal" class="admin-modal">
+        <div class="admin-box">
+            <span class="close-admin" onclick="closeAdmin()">&times;</span>
+            <div id="loginSection">
+                <h3>Admin Login</h3>
+                <input type="text" id="adminUser" placeholder="Username">
+                <input type="password" id="adminPass" placeholder="Password">
+                <button onclick="checkLogin()">Login</button>
+            </div>
+            <div id="managementTab" style="display:none;">
+                <h3>SkillBee Management</h3>
+                <input type="text" id="newStudentCode" placeholder="New Access Code">
+                <input type="text" id="newYoutubeLink" placeholder="New YouTube Embed Link">
+                <button onclick="updateSystem()" class="update-btn">Save & Update Site</button>
+            </div>
+        </div>
+    </div>
+
+    <header id="home" class="hero-section">
+        <div class="hero-content">
+            <h1>Future Skills <br>Start Here</h1>
+            <p>SkillBee provides complete student development with expert mentors.</p>
+            <button class="explore-btn" onclick="document.getElementById('courses').scrollIntoView()">Explore Courses</button>
+        </div>
+    </header>
+
+    <section id="courses" class="container">
+        <h2 class="section-title">Available Courses</h2>
+        <div class="course-grid">
+            <div class="course-box"><h3>Resin Art</h3><p class="price">₹1999</p><button onclick="buyCourse('Resin Art')">Enroll Now</button></div>
+            <div class="course-box"><h3>AI For Teachers</h3><p class="price">₹1499</p><button onclick="buyCourse('AI For Teachers')">Enroll Now</button></div>
+            <div class="course-box"><h3>Advanced Graphic Design</h3><p class="price">₹2499</p><button onclick="buyCourse('Advanced Graphic Design')">Enroll Now</button></div>
+            <div class="course-box"><h3>AI Prompt Engineering</h3><p class="price">₹999</p><button onclick="buyCourse('AI Prompt Engineering')">Enroll Now</button></div>
+            <div class="course-box"><h3>Meta Ads Workshop</h3><p class="price">₹1299</p><button onclick="buyCourse('Meta Ads Workshop')">Enroll Now</button></div>
+            <div class="course-box"><h3>Life Skill Development</h3><p class="price">₹799</p><button onclick="buyCourse('Life Skill Development')">Enroll Now</button></div>
+        </div>
+    </section>
+
+    <section id="highlights">
+        <h2 class="section-title">SkillBee Highlights</h2>
+        <div class="slider-wrapper">
+            <div class="slider-track">
+                <div class="slide"><img src="h1.png" alt="H1"></div>
+                <div class="slide"><img src="h2.png" alt="H2"></div>
+                <div class="slide"><img src="h3.png" alt="H3"></div>
+                <div class="slide"><img src="h4.png" alt="H4"></div>
+                <div class="slide"><img src="h5.png" alt="H5"></div>
+                <div class="slide"><img src="h1.png" alt="H1"></div>
+                <div class="slide"><img src="h2.png" alt="H2"></div>
+                <div class="slide"><img src="h3.png" alt="H3"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="verify" class="unlock-section">
+        <div class="verify-box">
+            <h3>Student Access Portal</h3>
+            <input type="text" id="studentCode" placeholder="Enter Code">
+            <button onclick="verifyCode()">Unlock My Course</button>
+            <div id="videoArea" style="display:none; margin-top: 30px;">
+                <iframe id="courseVideo" width="100%" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+    </section>
+
+    <section id="workers" class="container">
+        <h2 class="section-title">Meet Our Instructors</h2>
+        <div class="worker-grid">
+            <div class="worker-card"><img src="staff1.png" alt="CEO" class="worker-img"><h3>Muhammed Muhsin PT</h3><p>Chief Executive Officer</p></div>
+            <div class="worker-card"><img src="staff2.png" alt="Staff" class="worker-img"><h3>Rahla Shahid</h3><p>Telecaller Executive Officer</p></div>
+            <div class="worker-card"><img src="staff3.png" alt="Staff" class="worker-img"><h3>Fasna Fabee K</h3><p>Digital Marketing Executive Officer</p></div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Skillbee Platform | Contact: 7907287563</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
